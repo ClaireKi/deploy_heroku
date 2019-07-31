@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+<div class="all">
+    <h1 id="title">게시판</h1>
+    <hr/>
+    {% for post in posts_show.all %}
+    <div class="postArea">
+        <h3><a href="{% url 'detail' post.id %}">{{post.title}}</a></h3>
+        <!-- <p>{{post.pub_date}}</p> -->
+        <!-- <div class="btnArea">
+            <a href="{% url 'modify' post.id %}">수정하기</a> ||
+            <a href="{% url 'delete' post.id %}">삭제하기</a>
+        </div> -->
+    </div>
+    {% endfor %}
+    <div class="useButton">
+        <hr/>
+        <a href="{% url 'new' %}">글쓰기</a> ||
+        <a href="{% url 'newpost' %}">form을 이용하여 글쓰기</a> ||
+        <a href="{% url 'imageview' %}">static 이미지</a>
+    </div>  
+</div>
+<style>
+    .useButton {
+        margin-top: 420px;
+        text-align: center;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    #title {
+        text-align: center;
+    }
+    .all {
+        margin-top: 55px;
+        /* background-color: ivory; */
+    }
+    .postArea {
+        justify-content: center;
+        display: flex;
+        border: 2px solid gray;
+        border-radius: 15px;
+        width: 70%;
+        margin: 10px auto 30px auto;
+        text-align: center;
+    }
+
+    .btnArea{
+        padding: 30px 0px 0px 0px;
+    }
+</style>
+{% endblock %}

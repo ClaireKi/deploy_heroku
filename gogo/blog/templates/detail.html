@@ -1,0 +1,14 @@
+<div class="inner">
+    <h1>제목 : {{ post.title }}</h1>
+    <h3>{{ post.content }}</h3>
+    <hr/>
+    <h6>{{ post.pub_date }}</h6>
+</div>
+
+<a href="{% url 'index' %}">뒤로가기</a>
+
+<style>
+    .inner {
+        text-align: center
+    }
+</style>

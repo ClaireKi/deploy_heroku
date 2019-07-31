@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+{% load staticfiles %}
+
+{% for x in imgclass.all %}
+<div class="imgfd">
+    <h1>{{ x.title }}</h1>
+    <img src="{{ x.image.url }}" height= 400>
+    <p>{{ x.description }}</p>
+</div>
+{% endfor %}
+<img src="{% static 'hulk.jpg' %}" height= 400 alt="사진사진">
+<br/>
+<a href="{% url 'index' %}">뒤로가기</a>
+
+<style>
+    .imgfd {
+        border: 3px solid black;
+        border-radius: 10px;
+        text-align: center;
+        padding-top: 100px;
+        margin-bottom: 100px;
+        margin-top: 55px;
+    }
+</style>
+{% endblock %}

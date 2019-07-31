@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block contents %}
+<div class="container">
+    <h1>회원가입</h1>
+    <form method="POST" action="{% url 'signup' %}">
+        {% csrf_token %}
+        username:
+        <br/>
+        <input name="username" type="text" placeholder="아이디">
+        <br/>
+        password:
+        <br/>
+        <input name="password1" type="password" placeholder="비밀번호">
+        <br/>
+        confirm password:
+        <br/>
+        <input name="password2" type="password" placeholder="비밀번호 확인">
+        <br/>
+        <input type="submit" value="계정생성">
+    </form>
+    <a href="{% url 'index' %}">홈으로</a>
+</div>
+{% endblock %}
